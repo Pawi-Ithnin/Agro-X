@@ -1,4 +1,3 @@
-let map;
 // Inisialisasi Peta
 window.onload = function() {
   map = L.map('map').setView([1.4927, 103.7692], 16); 
