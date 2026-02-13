@@ -7,63 +7,46 @@
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
 <div id="payment-overlay">
     <div class="payment-card">
-        <h2 style="color:var(--primary); margin:0;">Agro X Space</h2>
-        <p style="font-size:13px; color:#64748b;">Akses Satelit Harian (Sekali Masuk)</p>
+        <h2>Agro X Space</h2>
+        <p>Akses Satelit Harian</p>
         <div class="price-tag">RM 15</div>
-        
         <div class="qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DUITNOW_RM10" alt="QR RM10">
-            <p class="company-name">TANDA X </p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DUITNOW_TANDAX" alt="QR Payment">
         </div>
-
-        <a href="https://wa.me/60102857165?text=Saya%20dah%20bayar%20RM10%20untuk%20TandaX.%20Ini%20resitnya.%20Minta%20password." target="_blank" class="btn-wa">HANTAR RESIT (WHATSAPP)</a>
-        
         <div class="pass-group">
             <input type="text" id="pass-input" placeholder="Kod Password">
             <button onclick="checkPass()" class="btn-enter">MASUK</button>
         </div>
-        <p class="disclaimer">*Password sah untuk akses sesi hari ini sahaja.</p>
     </div>
 </div>
 
 <div class="app-container">
     <div class="sidebar">
         <h2 class="brand-title">🌍 Tanda X</h2>
-        <p class="app-version">SATELIT ANALITIK v1.0</p>
-
         <div class="input-section">
-            <label class="input-label">LOKASI LADANG:</label>
-            <input type="text" id="loc" placeholder="Cth: Segamat, Johor">
-            <button class="btn-scan" onclick="runScan()">IMBAS LADANG</button>
+            <label>LOKASI LADANG:</label>
+            <input type="text" id="loc" placeholder="Cth: Taman Suria, JB">
+            <button class="btn-scan" onclick="runScan()">IMBAS KESUBURAN</button>
         </div>
-
-        <div id="ai-msg">
-            Sila masukkan lokasi untuk imbasan kesihatan tanaman.
-        </div>
-
-        <button id="dl-btn" class="btn-report" onclick="window.print()">SIMPAN LAPORAN (PDF)</button>
+        
+        <div id="ai-msg">Masukkan lokasi untuk analisis AI.</div>
+        
+        <button id="dl-btn" class="btn-report" style="display:none;" onclick="downloadLaporan()">SIMPAN LAPORAN (PDF)</button>
     </div>
 
     <div class="main-view">
         <div id="map"></div>
         <div class="stats-overlay">
-            <div class="stat-card">
-                <small>KESUBURAN (NDVI)</small>
-                <h2 id="v1" class="val-primary">--</h2>
-            </div>
-            <div class="stat-card">
-                <small>KELEMBAPAN</small>
-                <h2 id="v2" class="val-accent">--</h2>
-            </div>
-            <div class="stat-card">
-                <small>STATUS AI</small>
-                <h2 id="v3" class="val-status">SEDIA</h2>
-            </div>
+            <div class="stat-card"><small>NDVI</small><h2 id="v1">--</h2></div>
+            <div class="stat-card"><small>AIR</small><h2 id="v2">--</h2></div>
+            <div class="stat-card"><small>STATUS</small><h2 id="v3">SEDIA</h2></div>
         </div>
     </div>
 </div>
