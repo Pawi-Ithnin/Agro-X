@@ -1,0 +1,131 @@
+:root { 
+    --primary: #1a5c2e; 
+    --secondary: #2ecc71; 
+    --accent: #e67e22; 
+    --dark: #0f172a; 
+    --light: #f8fafc; 
+}
+
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    margin: 0; 
+    background: var(--light); 
+    color: var(--dark); 
+    overflow: hidden;
+}
+
+/* --- OVERLAY BAYARAN --- */
+#payment-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.98); z-index: 10000;
+    display: flex; align-items: center; justify-content: center; 
+    backdrop-filter: blur(10px); transition: 0.5s;
+}
+
+.payment-card {
+    background: white; padding: 30px; border-radius: 24px; 
+    text-align: center; max-width: 380px; width: 90%;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.price-tag {
+    font-size: 40px; font-weight: 900; color: var(--primary); margin: 10px 0;
+}
+
+.qr-box { 
+    background: #f1f5f9; padding: 20px; border-radius: 16px; 
+    margin: 20px 0; border: 2px solid var(--primary); 
+}
+
+.qr-box img { width: 180px; }
+
+.company-name { font-size: 11px; margin-top: 8px; font-weight: bold; }
+
+.btn-wa { 
+    display: block; background: #25D366; color: white; 
+    padding: 14px; border-radius: 12px; text-decoration: none; 
+    font-weight: bold; margin-bottom: 15px; transition: 0.3s;
+}
+
+.pass-group { 
+    display: flex; gap: 10px; border-top: 1px solid #eee; padding-top: 20px; 
+}
+
+.btn-enter {
+    background: var(--primary); color: white; border: none; 
+    padding: 10px 20px; border-radius: 10px; cursor: pointer; font-weight: bold;
+}
+
+.disclaimer { font-size: 10px; color: #94a3b8; margin-top: 15px; }
+
+/* --- DASHBOARD --- */
+.app-container { display: flex; height: 100vh; }
+
+.sidebar { 
+    width: 320px; background: white; padding: 25px; 
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05); 
+    display: flex; flex-direction: column; z-index: 900; 
+}
+
+.brand-title { color: var(--primary); margin: 0; }
+.app-version { font-size: 11px; color: #94a3b8; font-weight: bold; margin-bottom: 20px; }
+
+.input-section { background: #f1f5f9; padding: 15px; border-radius: 12px; }
+.input-label { font-size: 11px; font-weight: bold; }
+
+input { 
+    width: 100%; padding: 12px; border: 2px solid #e2e8f0; 
+    border-radius: 10px; outline: none; font-size: 16px; box-sizing: border-box;
+}
+
+.btn-scan { 
+    width: 100%; padding: 15px; background: var(--primary); 
+    color: white; border: none; border-radius: 10px; 
+    font-weight: bold; cursor: pointer; margin-top: 10px; 
+}
+
+#ai-msg {
+    margin-top: 20px; font-size: 13px; color: #475569; 
+    border-left: 3px solid var(--secondary); padding-left: 10px;
+}
+
+.btn-report { 
+    width: 100%; padding: 12px; background: white; 
+    color: var(--primary); border: 2px solid var(--primary); 
+    border-radius: 10px; font-weight: bold; cursor: pointer; 
+    margin-top: 15px; display: none; 
+}
+
+.main-view { flex: 1; position: relative; }
+#map { height: 100%; width: 100%; }
+
+/* --- STATS --- */
+.stats-overlay { 
+    position: absolute; bottom: 20px; left: 20px; right: 20px; 
+    display: grid; grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; z-index: 800; 
+}
+
+.stat-card { 
+    background: rgba(255, 255, 255, 0.95); padding: 15px; 
+    border-radius: 15px; text-align: center; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+}
+
+.val-primary { color: var(--primary); margin: 5px 0 0 0; }
+.val-accent { color: var(--accent); margin: 5px 0 0 0; }
+.val-status { font-size: 18px; margin: 5px 0 0 0; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) { 
+    .app-container { flex-direction: column; overflow-y: auto; } 
+    .sidebar { width: 100%; } 
+    #map { height: 350px; flex: none; } 
+    .stats-overlay { position: relative; bottom: 0; left: 0; right: 0; padding: 15px; } 
+}
+
+@media print { 
+    .sidebar, #payment-overlay, .leaflet-control-zoom { display: none !important; } 
+    .main-view { width: 100%; }
+    .stats-overlay { position: static; display: grid; margin-top: 20px; }
+}
