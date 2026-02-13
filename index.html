@@ -1,38 +1,48 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <div id="payment-overlay">
-    <div class="payment-card">
-        <h2>Agro X Space</h2>
-        <p>Akses Satelit Harian</p>
-        <div class="price-tag">RM 15</div>
-        <div class="qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DUITNOW_TANDAX" alt="QR">
-        </div>
-        <div class="pass-group">
-            <input type="text" id="pass-input" placeholder="Kod Password">
-            <button onclick="checkPass()" class="btn-enter">MASUK</button>
-        </div>
+  <div class="payment-card">
+    <h2 style="color:#1a5c2e; margin:0; font-size:18px;">Agro X Space</h2>
+    <p style="font-size:11px; color:#666; margin:2px 0 10px 0;">Akses Satelit Harian (RM 15)</p>
+    
+    <div class="qr-box">
+      <img src="https://i.ibb.co/5g1KVsyd/photo-6070863400645889743-y-2.jpg" alt="QR Tanda X">
+      <p style="font-weight:bold; font-size:12px; color:#1a5c2e; margin:5px 0 0 0;">TANDA X ENTERPRISE</p>
     </div>
+
+    <a href="https://wa.me/60102857165?text=Assalamualaikum%20TandaX%2C%20saya%20dah%20bayar%20RM15.%20Ini%20resitnya." 
+       target="_blank" class="btn-wa">
+       📩 HANTAR RESIT & MINTA PASSWORD
+    </a>
+    
+    <div class="password-box">
+      <p style="font-size:11px; font-weight:bold; margin-bottom:5px;">MASUKKAN PASSWORD:</p>
+      <div class="pass-row">
+        <input type="text" id="pass-input" placeholder="Kod Di Sini">
+        <button onclick="checkPass()">MASUK</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="app-container">
-    <div class="sidebar">
-        <h2 class="brand-title">🌍 Tanda X</h2>
-        <div class="input-section">
-            <label>LOKASI LADANG:</label>
-            <input type="text" id="loc" placeholder="Cth: Taman Suria, JB">
-            <button class="btn-scan" onclick="runScan()">IMBAS KESUBURAN</button>
-        </div>
-        <div id="ai-msg">Sila masukkan lokasi untuk analisis AI.</div>
-        <button id="dl-btn" class="btn-report" style="display:none;" onclick="downloadLaporan()">SIMPAN LAPORAN (PDF)</button>
+  <div class="sidebar">
+    <h2 style="color:#1a5c2e">🌍 Tanda X</h2>
+    <div class="input-section">
+      <input type="text" id="loc" placeholder="Cth: Segamat, Johor">
+      <button class="btn-scan" onclick="runScan()">IMBAS LADANG</button>
     </div>
-
-    <div class="main-view">
-        <div id="map"></div>
-        <div class="stats-overlay">
-            <div class="stat-card"><small>NDVI</small><h2 id="v1">--</h2></div>
-            <div class="stat-card"><small>AIR</small><h2 id="v2">--</h2></div>
-            <div class="stat-card"><small>STATUS</small><h2 id="v3">SEDIA</h2></div>
-        </div>
+    <div id="ai-msg">Analisis AI akan muncul di sini.</div>
+    <button id="dl-btn" class="btn-report" style="display:none;" onclick="downloadLaporan()">SIMPAN PDF</button>
+  </div>
+  <div class="main-view">
+    <div id="map"></div>
+    <div class="stats-overlay">
+      <div class="stat-card"><small>NDVI</small><h2 id="v1">--</h2></div>
+      <div class="stat-card"><small>AIR</small><h2 id="v2">--</h2></div>
+      <div class="stat-card"><small>STATUS</small><h2 id="v3">SEDIA</h2></div>
     </div>
+  </div>
 </div>
