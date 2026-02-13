@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="ms">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Tanda X | Satelit Analitik</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-</head>
-<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <div id="payment-overlay">
     <div class="payment-card">
@@ -18,7 +6,7 @@
         <p>Akses Satelit Harian</p>
         <div class="price-tag">RM 15</div>
         <div class="qr-box">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DUITNOW_TANDAX" alt="QR Payment">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=DUITNOW_TANDAX" alt="QR">
         </div>
         <div class="pass-group">
             <input type="text" id="pass-input" placeholder="Kod Password">
@@ -35,9 +23,7 @@
             <input type="text" id="loc" placeholder="Cth: Taman Suria, JB">
             <button class="btn-scan" onclick="runScan()">IMBAS KESUBURAN</button>
         </div>
-        
-        <div id="ai-msg">Masukkan lokasi untuk analisis AI.</div>
-        
+        <div id="ai-msg">Sila masukkan lokasi untuk analisis AI.</div>
         <button id="dl-btn" class="btn-report" style="display:none;" onclick="downloadLaporan()">SIMPAN LAPORAN (PDF)</button>
     </div>
 
@@ -50,8 +36,3 @@
         </div>
     </div>
 </div>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
